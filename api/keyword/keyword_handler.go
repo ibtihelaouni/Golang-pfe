@@ -12,15 +12,15 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// CreateKeyword		Handles the creation of a new service.
+// CreateKeyword	Handles the creation of a new service.
 // @Summary        	Create keyword
 // @Description    	Create a new keyword.
-// @Tags			keywords
+// @Tags			Keyword
 // @Accept			json
 // @Produce			json
 // @Security 		ApiKeyAuth
 // @Param			serviceID		path			string				true		"Service ID"
-// @Param			request			body			keywords.keywordIn		true		"Keyword query params"
+// @Param			request			body			keyword.KeywordIn		true		"Keyword query params"
 // @Success			201				{object}		utils.ApiResponses
 // @Failure			400				{object}		utils.ApiResponses	"Invalid request"
 // @Failure			401				{object}		utils.ApiResponses	"Unauthorized"
@@ -64,13 +64,13 @@ func (db Database) CreateKeyword(ctx *gin.Context) {
 // ReadKeywords handles the retrieval of all keywords.
 // @Summary        	Get keywords
 // @Description    	Get all keywords.
-// @Tags			Keywords
+// @Tags			Keyword
 // @Produce			json
 // @Security 		ApiKeyAuth
 // @Param			page			query		int			false		"Page"
 // @Param			limit			query		int			false		"Limit"
 // @Param			serviceID		path		string		true		"Service ID"
-// @Success			200				{object}	keywords.KeywordsPagination
+// @Success			200				{object}	keyword.KeywordsPagination
 // @Failure			400				{object}	utils.ApiResponses		"Invalid request"
 // @Failure			401				{object}	utils.ApiResponses		"Unauthorized"
 // @Failure			403				{object}	utils.ApiResponses		"Forbidden"
@@ -154,14 +154,14 @@ func (db Database) ReadKeywords(ctx *gin.Context) {
 	utils.BuildResponse(ctx, http.StatusOK, constants.SUCCESS, response)
 }
 
-// ReadKeywordsList 	Handles the retrieval the list of all keywords.
+// ReadKeywordsList Handles the retrieval the list of all keywords.
 // @Summary        	Get list of  keywords
 // @Description    	Get list of all keywords.
-// @Tags			keywords
+// @Tags			Keyword
 // @Produce			json
 // @Security 		ApiKeyAuth
 // @Param			serviceID			path			string			true	"Service ID"
-// @Success			200					{array}			keywords.KeywordsList
+// @Success			200					{array}			keyword.KeywordsList
 // @Failure			400					{object}		utils.ApiResponses		"Invalid request"
 // @Failure			401					{object}		utils.ApiResponses		"Unauthorized"
 // @Failure			403					{object}		utils.ApiResponses		"Forbidden"
@@ -201,11 +201,11 @@ func (db Database) ReadKeywordsList(ctx *gin.Context) {
 // ReadKeywordsCount handles the retrieval of the number of all keywords.
 // @Summary        	Get number of keywords
 // @Description    	Get number of all keywords.
-// @Tags			Keywords
+// @Tags			Keyword
 // @Produce			json
 // @Security 		ApiKeyAuth
 // @Param			serviceID				path			string		true	"Service ID"
-// @Success			200						{object}		services.ServicesCount
+// @Success			200						{object}		keyword.KeywordsCount
 // @Failure			400						{object}		utils.ApiResponses	"Invalid request"
 // @Failure			401						{object}		utils.ApiResponses	"Unauthorized"
 // @Failure			403						{object}		utils.ApiResponses	"Forbidden"
@@ -240,12 +240,12 @@ func (db Database) ReadKeywordsCount(ctx *gin.Context) {
 // ReadKeyword handles the retrieval of one keyword.
 // @Summary        	Get keyword
 // @Description    	Get one keyword.
-// @Tags			Keywords
+// @Tags			Keyword
 // @Produce			json
 // @Security 		ApiKeyAuth
 // @Param			serviceID			path			string			true	"Service ID"
 // @Param			ID					path			string			true	"Keyword ID"
-// @Success			200					{object}		services.ServicesDetails
+// @Success			200					{object}		keyword.KeywordsDetails
 // @Failure			400					{object}		utils.ApiResponses		"Invalid request"
 // @Failure			401					{object}		utils.ApiResponses		"Unauthorized"
 // @Failure			403					{object}		utils.ApiResponses		"Forbidden"
@@ -283,13 +283,13 @@ func (db Database) ReadKeyword(ctx *gin.Context) {
 // UpdateKeyword handles the update of a keyword.
 // @Summary        	Update keyword
 // @Description    	Update keyword.
-// @Tags            Keywords
+// @Tags            Keyword
 // @Accept          json
 // @Produce         json
 // @Security        ApiKeyAuth
 // @Param           serviceId       path            string              true        "Service ID"
 // @Param           ID              path            string              true        "Keyword ID"
-// @Param           request         body            keywords.KeywordIn true        "Keyword query params"
+// @Param           request         body            keyword.KeywordIn   true        "Keyword query params"
 // @Success         200             {object}        utils.ApiResponses
 // @Failure         400             {object}        utils.ApiResponses        "Invalid request"
 // @Failure         401             {object}        utils.ApiResponses        "Unauthorized"
@@ -346,7 +346,7 @@ func (db Database) UpdateKeyword(ctx *gin.Context) {
 // DeleteKeyword handles the deletion of a keyword.
 // @Summary        	Delete keyword
 // @Description    	Delete one keyword.
-// @Tags            Keywords
+// @Tags            Keyword
 // @Produce         json
 // @Security        ApiKeyAuth
 // @Param           serviceId       path            string              true        "Service ID"

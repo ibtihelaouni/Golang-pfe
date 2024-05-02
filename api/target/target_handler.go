@@ -12,15 +12,15 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// CreateTarget 		Handles the creation of a new target.
+// CreateTarget 	Handles the creation of a new target.
 // @Summary        	Create target
 // @Description    	Create a new target.
-// @Tags			targets
+// @Tags			Target
 // @Accept			json
 // @Produce			json
 // @Security 		ApiKeyAuth
 // @Param			companyID		path			string				true		"Company ID"
-// @Param			request			body			Target.TargetIn		true		"target query params"
+// @Param			request			body			target.TargetIn		true		"target query params"
 // @Success			201				{object}		utils.ApiResponses
 // @Failure			400				{object}		utils.ApiResponses	"Invalid request"
 // @Failure			401				{object}		utils.ApiResponses	"Unauthorized"
@@ -74,7 +74,7 @@ func (db Database) CreateTarget(ctx *gin.Context) {
 // ReadTargets		Handles the retrieval of all targets.
 // @Summary        	Get targets
 // @Description    	Get all targets.
-// @Tags			targets
+// @Tags			Target
 // @Produce			json
 // @Security 		ApiKeyAuth
 // @Param			page			query		int			false		"Page"
@@ -177,7 +177,7 @@ func (db Database) ReadTargets(ctx *gin.Context) {
 // ReadTargetList 	Handles the retrieval the list of all targets.
 // @Summary        	Get list of  targets
 // @Description    	Get list of all targets.
-// @Tags			targets
+// @Tags			Target
 // @Produce			json
 // @Security 		ApiKeyAuth
 // @Param			companyID			path			string			true	"Company ID"
@@ -230,11 +230,11 @@ func (db Database) ReadTargetList(ctx *gin.Context) {
 // ReadTargetCount 	Handles the retrieval the number of all targets.
 // @Summary        	Get number of  targets
 // @Description    	Get number of all targets.
-// @Tags			targets
+// @Tags			Target
 // @Produce			json
 // @Security 		ApiKeyAuth
 // @Param			companyID				path			string		true	"Company ID"
-// @Success			200						{object}		targets.TargetCount
+// @Success			200						{object}		target.TargetCount
 // @Failure			400						{object}		utils.ApiResponses	"Invalid request"
 // @Failure			401						{object}		utils.ApiResponses	"Unauthorized"
 // @Failure			403						{object}		utils.ApiResponses	"Forbidden"
@@ -280,12 +280,12 @@ func (db Database) ReadTargetCount(ctx *gin.Context) {
 // ReadTarget		Handles the retrieval of one target.
 // @Summary        	Get target
 // @Description    	Get one target.
-// @Tags			targets
+// @Tags			Target
 // @Produce			json
 // @Security 		ApiKeyAuth
 // @Param			companyID			path			string			true	"Company ID"
 // @Param			ID					path			string			true	"Target ID"
-// @Success			200					{object}		targets.targetDetails
+// @Success			200					{object}		target.TargetDetails
 // @Failure			400					{object}		utils.ApiResponses		"Invalid request"
 // @Failure			401					{object}		utils.ApiResponses		"Unauthorized"
 // @Failure			403					{object}		utils.ApiResponses		"Forbidden"
@@ -341,7 +341,7 @@ func (db Database) ReadTarget(ctx *gin.Context) {
 // UpdateTarget		Handles the update of a target.
 // @Summary        	Update target
 // @Description    	Update target.
-// @Tags			targets
+// @Tags			Target
 // @Accept			json
 // @Produce			json
 // @Security 		ApiKeyAuth
@@ -414,7 +414,7 @@ func (db Database) UpdateTarget(ctx *gin.Context) {
 // DeleteTarget	 	Handles the deletion of a target.
 // @Summary        	Delete target
 // @Description    	Delete one target.
-// @Tags			targets
+// @Tags			Target
 // @Produce			json
 // @Security 		ApiKeyAuth
 // @Param			companyID			path			string			true	"Company ID"

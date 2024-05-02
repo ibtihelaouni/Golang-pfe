@@ -20,6 +20,8 @@ func CompanyRouterInit(router *gin.RouterGroup, db *gorm.DB) {
 
 		// GET endpoint to retrieve all companies
 		companies.GET("", baseInstance.ReadCompanies)
+		// GET endpoint to retrieve all companies
+		companies.POST("", baseInstance.CreateCompany)
 
 		// GET endpoint to retrieve details of a specific company
 		companies.GET("/:ID", baseInstance.ReadCompany)

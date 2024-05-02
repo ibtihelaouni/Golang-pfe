@@ -22,7 +22,9 @@ func NewServiceRepository(db *gorm.DB) {
 
 // ReadAllPagination retrieves a paginated list of services based on company ID, limit, and offset.
 func ReadAllPagination(db *gorm.DB, model []domains.Services, modelID uuid.UUID, limit, offset int) ([]domains.Services, error) {
-	err := db.Where("company_id = ? ", modelID).Limit(limit).Offset(offset).Find(&model).Error
+	//	err := db.Where("company_id = ? ", modelID).Limit(limit).Offset(offset).Find(&model).Error
+	err := db.Where("").Limit(limit).Offset(offset).Find(&model).Error
+
 	return model, err
 }
 

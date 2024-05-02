@@ -75,6 +75,68 @@ definitions:
     required:
     - name
     type: object
+  KeywordIn:
+    description: KeywordIn represents the input structure for creating a new role.
+    properties:
+      name:
+        description: Name is the name of the role. It is required and should be between
+          2 and 40 characters.
+        maxLength: 40
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  KeywordsCount:
+    description: KeywordsCount represents the count of keywords.
+    properties:
+      count:
+        description: Count is the number of keywords.
+        type: integer
+    type: object
+  KeywordsDetails:
+    description: KeywordsDetails represents detailed information about a specific
+      keyword.
+    properties:
+      createdAt:
+        description: CreatedAt is the timestamp indicating when the keyword was created.
+        type: string
+      id:
+        description: ID is the unique identifier for the keyword.
+        type: string
+      name:
+        description: name is the name of the keyword.
+        type: string
+    type: object
+  KeywordsList:
+    description: KeywordsList represents a simplified version of the keyword for listing
+      purposes.
+    properties:
+      id:
+        description: ID is the unique identifier for the service.
+        type: string
+      name:
+        description: Name is the full name of the service.
+        type: string
+    type: object
+  KeywordsPagination:
+    description: KeywordsPagination represents the paginated list of keywords.
+    properties:
+      items:
+        description: Items is a slice containing individual service details.
+        items:
+          $ref: '#/definitions/ServicesTable'
+        type: array
+      limit:
+        description: Limit is the maximum number of items per page in the pagination.
+        type: integer
+      page:
+        description: Page is the current page number in the pagination.
+        type: integer
+      totalCount:
+        description: TotalCount is the total number of services in the entire list.
+        type: integer
+    type: object
   LoggedIn:
     description: LoggedIn represents the user details after successful login.
     properties:
@@ -230,6 +292,119 @@ definitions:
         description: Name is the name of the role.
         type: string
     type: object
+  ServicesCount:
+    description: ServicesCount represents the count of services.
+    properties:
+      count:
+        description: Count is the number of services.
+        type: integer
+    type: object
+  ServicesDetails:
+    description: ServicesDetails represents detailed information about a specific
+      service.
+    properties:
+      createdAt:
+        description: CreatedAt is the timestamp indicating when the service entry
+          was created.
+        type: string
+      description:
+        description: description is the description of the service. It is required
+          and should be between 3 and 35 characters.
+        maxLength: 35
+        minLength: 3
+        type: string
+      id:
+        description: ID is the unique identifier for the user.
+        type: string
+      name:
+        description: name is the  name of the service. It is required and should be
+          between 3 and 30 characters.
+        maxLength: 30
+        minLength: 3
+        type: string
+    required:
+    - description
+    - name
+    type: object
+  ServicesIn:
+    description: ServicesIn represents the input structure for creating a new service.
+    properties:
+      companyID:
+        description: CompanyID is the unique identifier for the company associated
+          with the service. It is required.
+        type: string
+      description:
+        description: description is the description of the service. It is required
+          and should be between 3 and 35 characters.
+        maxLength: 35
+        minLength: 3
+        type: string
+      keywordName:
+        description: KeywordName is the name of the keyword's service. It is required
+          and should be between 2 and 255 characters.
+        maxLength: 255
+        minLength: 2
+        type: string
+      name:
+        description: name is the  name of the service. It is required and should be
+          between 3 and 30 characters.
+        maxLength: 30
+        minLength: 3
+        type: string
+    required:
+    - companyID
+    - description
+    - keywordName
+    - name
+    type: object
+  ServicesList:
+    description: ServicesList represents a simplified version of the service for listing
+      purposes.
+    properties:
+      id:
+        description: ID is the unique identifier for the service.
+        type: string
+      name:
+        description: Name is the full name of the service.
+        type: string
+    type: object
+  ServicesPagination:
+    description: ServicesPagination represents the paginated list of Services.
+    properties:
+      items:
+        description: Items is a slice containing individual service details.
+        items:
+          $ref: '#/definitions/ServicesTable'
+        type: array
+      limit:
+        description: Limit is the maximum number of items per page in the pagination.
+        type: integer
+      page:
+        description: Page is the current page number in the pagination.
+        type: integer
+      totalCount:
+        description: TotalCount is the total number of services in the entire list.
+        type: integer
+    type: object
+  ServicesTable:
+    description: KeywordsTable represents a single service entry in a table.
+    properties:
+      createdAt:
+        description: CreatedAt is the timestamp indicating when the service entry
+          was created.
+        type: string
+      id:
+        description: ID is the unique identifier for the user.
+        type: string
+      name:
+        description: name is the  name of the service. It is required and should be
+          between 3 and 30 characters.
+        maxLength: 30
+        minLength: 3
+        type: string
+    required:
+    - name
+    type: object
   Signin:
     description: Signin represents the information required for signing in.
     properties:
@@ -286,6 +461,111 @@ definitions:
     - firstName
     - lastName
     - password
+    type: object
+  TargetCount:
+    description: TargetCount represents the count of target.
+    properties:
+      count:
+        description: Count is the number of target.
+        type: integer
+    type: object
+  TargetDetails:
+    description: TargetDetails represents detailed information about a specific target.
+    properties:
+      createdAt:
+        description: CreatedAt is the timestamp indicating when the service entry
+          was created.
+        type: string
+      description:
+        description: description is the description of the service. It is required
+          and should be between 3 and 35 characters.
+        maxLength: 35
+        minLength: 3
+        type: string
+      id:
+        description: ID is the unique identifier for the user.
+        type: string
+      name:
+        description: name is the  name of the service. It is required and should be
+          between 3 and 30 characters.
+        maxLength: 30
+        minLength: 3
+        type: string
+    required:
+    - description
+    - name
+    type: object
+  TargetIn:
+    description: TargetIn represents the input structure for creating a new target.
+    properties:
+      companyID:
+        description: CompanyID is the unique identifier for the company associated
+          with the service. It is required.
+        type: string
+      name:
+        description: name is the  name of the service. It is required and should be
+          between 3 and 30 characters.
+        maxLength: 30
+        minLength: 3
+        type: string
+    required:
+    - companyID
+    - name
+    type: object
+  TargetList:
+    description: TargetList represents a simplified version of the target for listing
+      purposes.
+    properties:
+      id:
+        description: ID is the unique identifier for the service.
+        type: string
+      name:
+        description: Name is the full name of the service.
+        type: string
+    type: object
+  TargetPagination:
+    description: ServicesPagination represents the paginated list of Services.
+    properties:
+      items:
+        description: Items is a slice containing individual service details.
+        items:
+          $ref: '#/definitions/TargetTable'
+        type: array
+      limit:
+        description: Limit is the maximum number of items per page in the pagination.
+        type: integer
+      page:
+        description: Page is the current page number in the pagination.
+        type: integer
+      totalCount:
+        description: TotalCount is the total number of services in the entire list.
+        type: integer
+    type: object
+  TargetTable:
+    description: TargetTable represents a single target entry in a table.
+    properties:
+      createdAt:
+        description: CreatedAt is the timestamp indicating when the service entry
+          was created.
+        type: string
+      description:
+        description: description is the description of the service. It is required
+          and should be between 3 and 35 characters.
+        maxLength: 35
+        minLength: 3
+        type: string
+      id:
+        description: ID is the unique identifier for the user.
+        type: string
+      name:
+        description: name is the  name of the service. It is required and should be
+          between 3 and 30 characters.
+        maxLength: 30
+        minLength: 3
+        type: string
+    required:
+    - description
+    - name
     type: object
   UsersCount:
     description: UsersCount represents the count of users.
@@ -687,6 +967,263 @@ paths:
       summary: Update company
       tags:
       - Companies
+  /keywords/{serviceID}:
+    get:
+      description: Get all keywords.
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Service ID
+        in: path
+        name: serviceID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/KeywordsPagination'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get keywords
+      tags:
+      - Keyword
+    post:
+      consumes:
+      - application/json
+      description: Create a new keyword.
+      parameters:
+      - description: Service ID
+        in: path
+        name: serviceID
+        required: true
+        type: string
+      - description: Keyword query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/KeywordIn'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Create keyword
+      tags:
+      - Keyword
+  /keywords/{serviceID}/{ID}:
+    get:
+      description: Get one keyword.
+      parameters:
+      - description: Service ID
+        in: path
+        name: serviceID
+        required: true
+        type: string
+      - description: Keyword ID
+        in: path
+        name: ID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/KeywordsDetails'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get keyword
+      tags:
+      - Keyword
+  /keywords/{serviceID}/count:
+    get:
+      description: Get number of all keywords.
+      parameters:
+      - description: Service ID
+        in: path
+        name: serviceID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/KeywordsCount'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get number of keywords
+      tags:
+      - Keyword
+  /keywords/{serviceID}/list:
+    get:
+      description: Get list of all keywords.
+      parameters:
+      - description: Service ID
+        in: path
+        name: serviceID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/KeywordsList'
+            type: array
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get list of  keywords
+      tags:
+      - Keyword
+  /keywords/{serviceId}/{ID}:
+    put:
+      consumes:
+      - application/json
+      description: Update keyword.
+      parameters:
+      - description: Service ID
+        in: path
+        name: serviceId
+        required: true
+        type: string
+      - description: Keyword ID
+        in: path
+        name: ID
+        required: true
+        type: string
+      - description: Keyword query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/KeywordIn'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Update keyword
+      tags:
+      - Keyword
   /notifications/{userID}:
     get:
       description: Get all notifications.
@@ -1194,6 +1731,600 @@ paths:
       summary: Get list of  roles
       tags:
       - Roles
+  /services/{companyID}:
+    get:
+      description: Get all services.
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ServicesPagination'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get services
+      tags:
+      - Services
+    post:
+      consumes:
+      - application/json
+      description: Create a new service.
+      parameters:
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      - description: Service query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/ServicesIn'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Create service
+      tags:
+      - Services
+  /services/{companyID}/{ID}:
+    delete:
+      description: Delete one service.
+      parameters:
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      - description: service ID
+        in: path
+        name: ID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete service
+      tags:
+      - Services
+    get:
+      description: Get one service.
+      parameters:
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      - description: Service ID
+        in: path
+        name: ID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ServicesDetails'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get service
+      tags:
+      - Services
+    put:
+      consumes:
+      - application/json
+      description: Update service.
+      parameters:
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      - description: Service ID
+        in: path
+        name: ID
+        required: true
+        type: string
+      - description: Service query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/ServicesIn'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Update service
+      tags:
+      - Services
+  /services/{companyID}/count:
+    get:
+      description: Get number of all services.
+      parameters:
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ServicesCount'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get number of  services
+      tags:
+      - Services
+  /services/{companyID}/list:
+    get:
+      description: Get list of all services.
+      parameters:
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/ServicesList'
+            type: array
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get list of  services
+      tags:
+      - Services
+  /target/{companyID}:
+    get:
+      description: Get all targets.
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/TargetPagination'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get targets
+      tags:
+      - Target
+    post:
+      consumes:
+      - application/json
+      description: Create a new target.
+      parameters:
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      - description: target query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/TargetIn'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Create target
+      tags:
+      - Target
+  /target/{companyID}/count:
+    get:
+      description: Get number of all targets.
+      parameters:
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/TargetCount'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get number of  targets
+      tags:
+      - Target
+  /target/{companyID}/list:
+    get:
+      description: Get list of all targets.
+      parameters:
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/TargetList'
+            type: array
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get list of  targets
+      tags:
+      - Target
+  /targets/{companyID}/{ID}:
+    delete:
+      description: Delete one target.
+      parameters:
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      - description: target ID
+        in: path
+        name: ID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete target
+      tags:
+      - Target
+    get:
+      description: Get one target.
+      parameters:
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      - description: Target ID
+        in: path
+        name: ID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/TargetDetails'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get target
+      tags:
+      - Target
+    put:
+      consumes:
+      - application/json
+      description: Update target.
+      parameters:
+      - description: Company ID
+        in: path
+        name: companyID
+        required: true
+        type: string
+      - description: Target ID
+        in: path
+        name: ID
+        required: true
+        type: string
+      - description: Target query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/TargetIn'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Update target
+      tags:
+      - Target
   /users/{companyID}:
     get:
       description: Get all users.

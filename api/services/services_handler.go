@@ -12,7 +12,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// CreateService 		Handles the creation of a new service.
+// CreateService 	Handles the creation of a new service.
 // @Summary        	Create service
 // @Description    	Create a new service.
 // @Tags			Services
@@ -20,7 +20,7 @@ import (
 // @Produce			json
 // @Security 		ApiKeyAuth
 // @Param			companyID		path			string				true		"Company ID"
-// @Param			request			body			services.ServicesIn		true		"Service query params"
+// @Param			request			body			services.ServicesIn	true	"Service query params"
 // @Success			201				{object}		utils.ApiResponses
 // @Failure			400				{object}		utils.ApiResponses	"Invalid request"
 // @Failure			401				{object}		utils.ApiResponses	"Unauthorized"
@@ -83,7 +83,7 @@ func (db Database) CreateService(ctx *gin.Context) {
 	utils.BuildResponse(ctx, http.StatusCreated, constants.CREATED, utils.Null())
 }
 
-// ReadServices 		Handles the retrieval of all services.
+// ReadServices 	Handles the retrieval of all services.
 // @Summary        	Get services
 // @Description    	Get all services.
 // @Tags			Services
@@ -92,7 +92,7 @@ func (db Database) CreateService(ctx *gin.Context) {
 // @Param			page			query		int			false		"Page"
 // @Param			limit			query		int			false		"Limit"
 // @Param			companyID		path		string		true		"Company ID"
-// @Success			200				{object}	services.ServicessPagination
+// @Success			200				{object}	services.ServicesPagination
 // @Failure			400				{object}	utils.ApiResponses		"Invalid request"
 // @Failure			401				{object}	utils.ApiResponses		"Unauthorized"
 // @Failure			403				{object}	utils.ApiResponses		"Forbidden"
@@ -187,7 +187,7 @@ func (db Database) ReadServices(ctx *gin.Context) {
 	utils.BuildResponse(ctx, http.StatusOK, constants.SUCCESS, response)
 }
 
-// ReadServicesList 	Handles the retrieval the list of all services.
+// ReadServicesList Handles the retrieval the list of all services.
 // @Summary        	Get list of  services
 // @Description    	Get list of all services.
 // @Tags			Services
@@ -241,7 +241,7 @@ func (db Database) ReadServicesList(ctx *gin.Context) {
 	utils.BuildResponse(ctx, http.StatusOK, constants.SUCCESS, servicesList)
 }
 
-// ReadServicesCount 	Handles the retrieval the number of all services.
+// ReadServicesCount Handles the retrieval the number of all services.
 // @Summary        	Get number of  services
 // @Description    	Get number of all services.
 // @Tags			Services
@@ -353,7 +353,7 @@ func (db Database) ReadService(ctx *gin.Context) {
 	utils.BuildResponse(ctx, http.StatusOK, constants.SUCCESS, details)
 }
 
-// UpdateService 		Handles the update of a service.
+// UpdateService 	Handles the update of a service.
 // @Summary        	Update service
 // @Description    	Update service.
 // @Tags			Services
@@ -427,7 +427,7 @@ func (db Database) UpdateService(ctx *gin.Context) {
 	utils.BuildResponse(ctx, http.StatusOK, constants.SUCCESS, utils.Null())
 }
 
-// DeleteService	 	Handles the deletion of a service.
+// DeleteService	Handles the deletion of a service.
 // @Summary        	Delete service
 // @Description    	Delete one service.
 // @Tags			Services

@@ -76,6 +76,7 @@ func CheckByID(db *gorm.DB, model interface{}, id uuid.UUID) error {
 	return db.Select("id").Where("id = ?", id).First(model).Error
 }
 
+
 // ReadTotalCount retrieves the total count of records based on the specified condition.
 func ReadTotalCount(db *gorm.DB, model interface{}, conditionField string, conditionID uuid.UUID) (uint, error) {
 	var count int64
